@@ -44,3 +44,4 @@ https://raw.githubusercontent.com/Dwolla/dwolla-php/master/lib/dwolla.php
 ##This module is currently not finished.
 
 * This module does not support taxes at all.
+* This module assumes USD.

@@ -24,9 +24,12 @@ $invoiceid = checkCbInvoiceID($invoiceid,$GATEWAY["name"]);
 checkCbTransID($transid);
 
 # Decode JSON callback request
+# Todo: This came from Dwolla's API site, I feel like there ought to be
+# a better way than file_get_contents()
 $dwolla = json_decode(file_get_contents('php://input'));
 
 # Check signature
+# Ripped from: https://developers.dwolla.com/dev/pages/gateway#checkout-workflow
 if (verifyGatewaySignature($dwolla->Signature, $dwolla->TransactionId, $dwolla->Amount)) {
 	logTransaction($GATEWAY["name"],$_POST,"Unsuccessful: Bad Signature");
 	exit();
