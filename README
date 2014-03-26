@@ -23,8 +23,6 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#This module is currently not finished.
-
 #Installation Instructions
 
 1. Upload entire contents of modules/ directory to modules/ in your WHMCS
@@ -32,4 +30,17 @@ installation.
 2. Upload Dwolla PHP library to modules/gateways/dwolla/dwolla/dwolla.php,
 get it from here: 
 https://raw.githubusercontent.com/Dwolla/dwolla-php/master/lib/dwolla.php
-3. 
+3. Create a new Application in Dwolla:
+  * Settings; App Permissions; Create Application
+  * Create an Application, fill out required fields
+  * On the next page, copy Key and Secret.
+4. Enable gateway in WHMCS: Setup; Payments; Payment Gateways.
+  * Select Dwolla from dropdown box, click activate.
+  * Fill in Dwolla ID (your account ID on Dwolla website).
+  * Paste in Key and Secret from above steps.
+
+#Caveats
+
+##This module is currently not finished.
+
+* This module does not support taxes at all.
