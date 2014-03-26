@@ -2,8 +2,6 @@
 ## WHMCS Gateway module for Dwolla
 ## Copyright (c) 2014, Sabrienix Communications
 
-ini_set("display_errors", 1);
-
 function dwolla_config() {
 	$configarray = array(
 		"FriendlyName" => array("Type" => "System", "Value"=>"Dwolla"),
