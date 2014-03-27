@@ -12,17 +12,14 @@ $GATEWAY = getGatewayVariables($gatewaymodule);
 if (!$GATEWAY["type"]) die("Module Not Activated");
 
 # Helper function to verify signature
-function verifyGatewaySignature($proposedSignature, $checkoutId, $amount) {
-	global $GATEWAY;
+function verifyGatewaySignature($proposedSignature, $checkoutId, $amount, $secret) {
     $amount = number_format($amount, 2);
-    $signature = hash_hmac("sha1", "{$checkoutId}&{$amount}", $GATEWAY['apiSecret']);
+    $signature = hash_hmac("sha1", "{$checkoutId}&{$amount}", $secret);
 
     return $signature == $proposedSignature;
 }
 
 # Decode JSON callback request
-# Todo: This came from Dwolla's API site, I feel like there ought to be
-# a better way than file_get_contents()
 $dwolla = json_decode(file_get_contents('php://input'));
 
 # Check a few things in WHMCS, and halt if they're not correct
@@ -31,7 +28,7 @@ checkCbTransID($dwolla->TransactionId);
 
 # Check signature
 # Ripped from: https://developers.dwolla.com/dev/pages/gateway#checkout-workflow
-if (verifyGatewaySignature($dwolla->Signature, $dwolla->CheckoutId, $dwolla->Amount) != TRUE) {
+if (verifyGatewaySignature($dwolla->Signature, $dwolla->CheckoutId, $dwolla->Amount, $GATEWAY['apiSecret']) != TRUE) {
 	logTransaction($GATEWAY["name"],print_r($dwolla, true),"Unsuccessful: Bad Signature");
 	exit();
 }
