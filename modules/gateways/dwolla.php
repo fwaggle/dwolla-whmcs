@@ -36,7 +36,7 @@ function dwolla_link($params) {
 	foreach($post as $key => $value)
 		$form .= '<input type="hidden" name="' . $key . '" value="' . $value . '" />';
 	
-	$form .= '<button type="submit">Pay with Dwolla</button>';
+	$form .= '<input type="submit" value="' . $params['langpaynow']. '" />';
 	$form .= '</form>';
 	
 	return $form;
