@@ -31,7 +31,7 @@ function dwolla_link($params) {
 		'description' => $params['description'],
 	);
 	
-	$form = '<form accept-charset="UTF-8"  action="https://www.dwolla.com/payment/pay" method="post">';
+	$form = '<form accept-charset="UTF-8" action="https://www.dwolla.com/payment/pay" method="post">';
 	
 	foreach($post as $key => $value)
 		$form .= '<input type="hidden" name="' . $key . '" value="' . $value . '" />';
