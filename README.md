@@ -1,4 +1,4 @@
-WHMCS Gateway module for Dwolla
+#WHMCS Gateway module for Dwolla
 
 Copyright (c) 2014, Sabrienix Communications
 All rights reserved.
@@ -23,7 +23,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#Installation Instructions
+##Installation Instructions
 
 1. Upload entire contents of modules/ directory to modules/ in your WHMCS
 installation.
@@ -36,7 +36,8 @@ installation.
   * Fill in Dwolla ID (your account ID on Dwolla website).
   * Paste in Key and Secret from above steps.
 
-#Caveats
+##Caveats
 
 * This module does not support taxes at all.
 * This module assumes USD.
+* No test mode, as you can't get transaction IDs with it on.
