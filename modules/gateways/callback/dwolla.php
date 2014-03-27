@@ -28,8 +28,8 @@ checkCbTransID($dwolla->TransactionId);
 
 # Check signature
 # Ripped from: https://developers.dwolla.com/dev/pages/gateway#checkout-workflow
-if (verifyGatewaySignature($dwolla->Signature, $dwolla->CheckoutId, $dwolla->Amount, $GATEWAY['apiSecret']) != TRUE) {
-	logTransaction($GATEWAY["name"],print_r($dwolla, true),"Unsuccessful: Bad Signature");
+if (verifyGatewaySignature($dwolla->Signature, $dwolla->CheckoutId, $dwolla->Amount, $GATEWAY['apiSecret']) != True) {
+	logTransaction($GATEWAY["name"],print_r($dwolla, True),"Unsuccessful: Bad Signature");
 	exit();
 }
 
@@ -39,9 +39,9 @@ if ($dwolla->Status == "Completed") {
 	addInvoicePayment($dwolla->OrderId,$dwolla->TransactionId,$dwolla->Amount, 0,$gatewaymodule);
 	
 	# Log transaction
-	logTransaction($GATEWAY["name"],print_r($dwolla, true),"Successful");
+	logTransaction($GATEWAY["name"],print_r($dwolla, True),"Successful");
 } else {
-	logTransaction($GATEWAY["name"],print_r($dwolla, true),"Unsuccessful");
+	logTransaction($GATEWAY["name"],print_r($dwolla, True),"Unsuccessful");
 }
 
 ?>
