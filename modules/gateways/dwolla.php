@@ -29,9 +29,6 @@ function dwolla_link($params) {
 		'tax' => 0,
 		'name' => 'Invoice #' . $params['invoiceid'],
 		'description' => $params['description'],
-		
-		# Uncomment this to test the module.
-		'test' => 'true'
 	);
 	
 	$form = '<form accept-charset="UTF-8"  action="https://www.dwolla.com/payment/pay" method="post">';

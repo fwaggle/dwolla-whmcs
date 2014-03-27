@@ -38,7 +38,5 @@ installation.
 
 #Caveats
 
-##This module is currently not finished.
-
 * This module does not support taxes at all.
 * This module assumes USD.
